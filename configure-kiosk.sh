@@ -30,7 +30,7 @@ readonly START_TIME=`date +%Y-%m-%dT%H:%M:%S`
 readonly LOG_DIR="logs"
 readonly LOG_FILE="build_$START_TIME.log"
 readonly LOG_OUT="$launch_dir/$LOG_DIR/$LOG_FILE"
-readonly WEB_APP_URL="http://localhost"
+readonly WEB_APP_URL="http://10.8.0.1:8069"
 
 readonly KIOSK_DESKTOP_RC="\
 [Desktop]\n\
@@ -62,7 +62,7 @@ readonly START_CHROME="\
 X_RES=\`xrandr | grep \"*\" | awk -Fx '{ print \$1 }' | sed 's/[^0-9]*//g'\`\n\
 Y_RES=\`xrandr | grep \"*\" | awk -Fx '{ print \$2 }' | awk '{ print \$1 }'\`\n\n\
 /usr/bin/google-chrome --kiosk --start-fullscreen --window-position=0,0 \
---window-size=\$X_RES,\$Y_RES --no-first-run --incognito --no-default-browser-check \
+--window-size=\$X_RES,\$Y_RES --no-first-run --disable-notifications --incognito --no-default-browser-check \
 --disable-translate $WEB_APP_URL\n"
 
 ###############################################################################
