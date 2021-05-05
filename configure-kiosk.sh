@@ -121,7 +121,8 @@ enable_kiosk_autologin() {
     echo -e $KIOSK_AUTOLOGIN > /etc/lightdm/lightdm.conf
     echo -e $KIOSK_DEFAULT_SESSION > /etc/lightdm/lightdm.conf.d/99-kiosk.conf
     # Disable screensaver
-    echo -e "gsettings set org.gnome.desktop.screensaver lock-enabled false" > /etc/lightdm/lightdm.conf
+    #echo -e "gsettings set org.gnome.desktop.screensaver lock-enabled false" > /etc/lightdm/lightdm.conf
+    echo -e "xserver-command=X -s 0 dpms" > /etc/lightdm/lightdm.conf
 }
 
 ###############################################################################
