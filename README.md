@@ -8,7 +8,8 @@ environment but instead runs Google Chrome in fullscreen kiosk mode.
 
 Note: by default Chrome will be directed to http://localhost. Change the
 variable WEB\_APP\_URL to redirect somewhere else.
-
+https://www.youtube.com/watch?v=hf96SQqOoRs
+sudo apt install slick-greeter
 ## Usage
 
 Launch as root (or with root permissions):
