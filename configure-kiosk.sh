@@ -62,7 +62,7 @@ readonly START_CHROME="\
 X_RES=\`xrandr | grep \"*\" | awk -Fx '{ print \$1 }' | sed 's/[^0-9]*//g'\`\n\
 Y_RES=\`xrandr | grep \"*\" | awk -Fx '{ print \$2 }' | awk '{ print \$1 }'\`\n\n\
 /usr/bin/google-chrome --kiosk --start-fullscreen --window-position=0,0 \
---window-size=\$X_RES,\$Y_RES --no-first-run --disable-notifications --incognito --no-default-browser-check \
+--window-size=\$X_RES,\$Y_RES --no-first-run --disable-notifications --no-default-browser-check \
 --disable-translate $WEB_APP_URL\n"
 
 ###############################################################################
@@ -120,6 +120,8 @@ enable_kiosk_autologin() {
     msg "Enabling Kiosk autologin"
     echo -e $KIOSK_AUTOLOGIN > /etc/lightdm/lightdm.conf
     echo -e $KIOSK_DEFAULT_SESSION > /etc/lightdm/lightdm.conf.d/99-kiosk.conf
+    # Disable screensaver
+    echo -e "gsettings set org.gnome.desktop.screensaver lock-enabled false" > /etc/lightdm/lightdm.conf
 }
 
 ###############################################################################
