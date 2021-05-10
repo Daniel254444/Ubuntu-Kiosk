@@ -42,7 +42,9 @@ allow-guest=false\n\
 greeter-hide-users=true\n\
 autologin-guest=false\n\
 autologin-user=kiosk\n\
-autologin-user-timeout=0\n"
+autologin-user-timeout=0\n\
+# Disable screensaver\n\
+xserver-command=X -s 0 dpms\n"
 
 readonly KIOSK_DEFAULT_SESSION="\
 [Seat:*]\n\
@@ -120,9 +122,6 @@ enable_kiosk_autologin() {
     msg "Enabling Kiosk autologin"
     echo -e $KIOSK_AUTOLOGIN > /etc/lightdm/lightdm.conf
     echo -e $KIOSK_DEFAULT_SESSION > /etc/lightdm/lightdm.conf.d/99-kiosk.conf
-    # Disable screensaver
-    #echo -e "gsettings set org.gnome.desktop.screensaver lock-enabled false" > /etc/lightdm/lightdm.conf
-    echo -e "xserver-command=X -s 0 dpms" > /etc/lightdm/lightdm.conf
 }
 
 ###############################################################################
