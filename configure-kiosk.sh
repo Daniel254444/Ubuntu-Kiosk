@@ -63,7 +63,7 @@ readonly START_CHROME="\
 #!/bin/bash\n\n\
 X_RES=\`xrandr | grep \"*\" | awk -Fx '{ print \$1 }' | sed 's/[^0-9]*//g'\`\n\
 Y_RES=\`xrandr | grep \"*\" | awk -Fx '{ print \$2 }' | awk '{ print \$1 }'\`\n\n\
-/usr/bin/google-chrome --kiosk --start-fullscreen --window-position=0,0 \
+/usr/bin/google-chrome --kiosk --simulate-outdated-no-au='Tue, 31 Dec 2099 23:59:59 GMT' --start-fullscreen --window-position=0,0 \
 --window-size=\$X_RES,\$Y_RES --no-first-run --disable-notifications --no-default-browser-check \
 --disable-translate $WEB_APP_URL\n"
 
